@@ -12,7 +12,16 @@ function getComputerChoice() {
 
 function getPlayerChoice() {
     let choice = prompt("Rock, Paper, or Scissors?");
-    return choice;
+
+    // check that user inputted a valid choice while also eliminating capitalization issues
+    if (choice.toLowerCase() == 'rock' ||
+        choice.toLowerCase() == 'paper' ||
+        choice.toLowerCase() == 'scissors' ) {
+            console.log('You chose ' + choice);
+            return choice;
+        } else {
+            prompt('Pleae enter a valid choice of Rock, Paper, or Scissors');
+        }
 }
 
 function playRound() {
