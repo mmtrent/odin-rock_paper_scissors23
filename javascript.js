@@ -58,11 +58,9 @@ let computerScore = 0;
 let playerScore = 0;
 
 function game() {
-    playRound();
-    playRound();
-    playRound();
-    playRound();
-    playRound();
+    for (let i = 0; i < 5; i++) {
+        playRound();
+    }
 
     if (playerScore > computerScore) {
         console.log("You win the match!");
