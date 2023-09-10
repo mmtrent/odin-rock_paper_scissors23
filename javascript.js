@@ -1,3 +1,20 @@
+let computerScore = 0;
+let playerScore = 0;
+
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+
+    button.addEventListener('click', () => {
+        playRound(button.id);
+    })
+});
+
+const computerChoiceDiv = document.querySelector('#computerPick');
+
+const scoreDiv = document.querySelector('#score');
+
+
 function getComputerChoice() {
     // create array 'choices' and assign the three rock, paper, scissor choices
     const choices = ["rock","paper","scissors"];
@@ -10,16 +27,9 @@ function getComputerChoice() {
     return choices[choice];
 }
 
-function getPlayerChoice() {
-    let choice = prompt("Rock, Paper, or Scissors?");
-    return choice;
-}
 
-function playRound() {
+function playRound(playerChoice) {
     // rock beats scissors, paper beats rock, scissors beat paper
-
-    // call player choice function and assign to variable as player choice
-    let playerChoice = getPlayerChoice();
 
     // call computer choice function and assign to variable as computer choice
     let computerChoice = getComputerChoice();
@@ -42,24 +52,17 @@ function playRound() {
                 computerScore++;
             }
 
-            console.log("Computer: " + computerScore + ", You: " + playerScore);
+    console.log("Computer: " + computerScore + ", You: " + playerScore);
+    computerChoiceDiv.textContent = "Computer picks " + computerChoice;
+    scoreDiv.textContent = "Computer: " + computerScore + ", You: " + playerScore;
+
+    if (playerScore == 5) {
+        scoreDiv.textContent = "You win!";
+        alert("You win!");
+    };
+
+    if (computerScore == 5) {
+        scoreDiv.textContent = "Computer wins.";
+        alert("Computer Wins!");
+    };
 }
-
-let computerScore = 0;
-let playerScore = 0;
-
-function game() {
-    playRound();
-    playRound();
-    playRound();
-    playRound();
-    playRound();
-
-    if (playerScore > computerScore) {
-        console.log("You win the match!");
-    } else if (computerScore > playerScore) {
-        console.log("Computer wins the match.");
-    } else {console.log("Tie match")}
-}
-
-game();
