@@ -27,10 +27,6 @@ function getComputerChoice() {
     return choices[choice];
 }
 
-function getPlayerChoice() {
-    let choice = prompt("Rock, Paper, or Scissors?");
-    return choice;
-}
 
 function playRound(playerChoice) {
     // rock beats scissors, paper beats rock, scissors beat paper
@@ -65,16 +61,8 @@ function playRound(playerChoice) {
         alert("You win!");
     };
 
-function game() {
-    playRound();
-    playRound();
-    playRound();
-    playRound();
-    playRound();
-
-    if (playerScore > computerScore) {
-        console.log("You win the match!");
-    } else if (computerScore > playerScore) {
-        console.log("Computer wins the match.");
-    } else {console.log("Tie match")}
+    if (computerScore == 5) {
+        scoreDiv.textContent = "Computer wins.";
+        alert("Computer Wins!");
+    };
 }
